@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priya Dharshini L — Data Scientist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #faf9f7;
+    --card: #ffffff;
+    --border: #e8e4de;
+    --accent: #1d6f5c;
+    --accent2: #b45309;
+    --text: #1a1a1a;
+    --sub: #5a5a5a;
+    --muted: #9a9a9a;
+    --ff: 'IBM Plex Sans', sans-serif;
+    --fm: 'IBM Plex Mono', monospace;
+    --fd: 'Playfair Display', serif;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--ff);
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3rem 2rem 4rem;
+  }
+
+  /* HEADER */
+  .header {
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .header-left { flex: 1; min-width: 240px; }
+  .h-tag {
+    font-family: var(--fm);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+  }
+  h1 {
+    font-family: var(--fd);
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.05;
+    color: var(--text);
+    margin-bottom: .5rem;
+    font-weight: 400;
+  }
+  h1 em { font-style: italic; color: var(--accent2); }
+  .h-sub {
+    font-size: 13px;
+    color: var(--sub);
+    line-height: 1.7;
+    max-width: 460px;
+    margin-bottom: 1.25rem;
+  }
+  .avatar {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: #d1ece6;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--fd);
+    font-size: 1.6rem;
+    color: #0f6e56;
+    flex-shrink: 0;
+    border: 2px solid #9fddd0;
+  }
+
+  /* CONTACT CHIPS */
+  .contact-row { display: flex; flex-wrap: wrap; gap: .45rem; }
+  .ctag {
+    font-family: var(--fm);
+    font-size: 11px;
+    color: var(--sub);
+    background: var(--card);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: .3rem .75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    text-decoration: none;
+    transition: border-color .15s, color .15s;
+  }
+  .ctag:hover { border-color: var(--accent); color: var(--accent); }
+  .ctag i { font-size: 13px; color: var(--accent); }
+
+  /* SECTIONS */
+  .sec { padding: 2rem 0; border-bottom: 1px solid var(--border); }
+  .sec:last-child { border-bottom: none; }
+  .sec-label {
+    font-family: var(--fm);
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+
+  /* SKILLS */
+  .skills-wrap { display: flex; flex-direction: column; gap: .8rem; }
+  .skill-row { display: flex; align-items: center; gap: .85rem; }
+  .skill-name {
+    font-family: var(--fm);
+    font-size: 11px;
+    color: var(--sub);
+    width: 130px;
+    flex-shrink: 0;
+  }
+  .skill-bar {
+    flex: 1;
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .skill-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    animation: grow .8s ease forwards;
+    transform-origin: left;
+  }
+  .skill-fill.warm { background: var(--accent2); }
+  @keyframes grow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  /* PROJECTS */
+  .proj-list { display: flex; flex-direction: column; gap: 1rem; }
+  .proj-card {
+    background: var(--card);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.4rem;
+    transition: border-color .2s;
+  }
+  .proj-card:hover { border-color: #9fddd0; }
+  .proj-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: .5rem;
+    gap: .75rem;
+  }
+  .proj-name {
+    font-family: var(--fd);
+    font-size: 1.05rem;
+    color: var(--text);
+    line-height: 1.25;
+    font-weight: 400;
+  }
+  .proj-badge {
+    font-family: var(--fm);
+    font-size: 9px;
+    padding: .25rem .65rem;
+    border-radius: 3px;
+    background: #d1ece6;
+    color: #0f6e56;
+    flex-shrink: 0;
+    margin-top: 2px;
+    letter-spacing: .06em;
+  }
+  .proj-desc {
+    font-size: 12.5px;
+    color: var(--sub);
+    line-height: 1.7;
+    margin-bottom: .85rem;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: .35rem; }
+  .tag {
+    font-family: var(--fm);
+    font-size: 9px;
+    padding: .2rem .55rem;
+    border-radius: 2px;
+    background: #f3f1ed;
+    color: var(--muted);
+    border: 0.5px solid var(--border);
+  }
+  .proj-highlight {
+    font-family: var(--fm);
+    font-size: 11px;
+    color: var(--accent);
+    border-top: 0.5px solid var(--border);
+    margin-top: .85rem;
+    padding-top: .75rem;
+  }
+
+  /* WHAT I BRING */
+  .bring-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: .75rem;
+  }
+  .bring-card {
+    background: var(--card);
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    padding: .85rem 1rem;
+  }
+  .bring-icon { font-size: 20px; color: var(--accent); margin-bottom: .4rem; }
+  .bring-title { font-size: 12.5px; font-weight: 500; color: var(--text); margin-bottom: .2rem; }
+  .bring-desc { font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+  /* CERTS */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: .65rem;
+  }
+  .cert-card {
+    background: var(--card);
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    padding: .8rem 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: .65rem;
+  }
+  .cert-icon { font-size: 18px; color: var(--accent2); flex-shrink: 0; margin-top: 2px; }
+  .cert-name { font-size: 12.5px; color: var(--text); font-weight: 500; line-height: 1.3; }
+  .cert-by { font-family: var(--fm); font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+  /* EDUCATION */
+  .edu-list { display: flex; flex-direction: column; gap: 1rem; }
+  .edu-item { display: flex; gap: .9rem; align-items: flex-start; }
+  .edu-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+  .edu-deg { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: .15rem; }
+  .edu-inst { font-family: var(--fm); font-size: 11px; color: var(--accent2); margin-bottom: .1rem; }
+  .edu-yr { font-family: var(--fm); font-size: 10px; color: var(--muted); }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 0 1rem;
+    text-align: center;
+  }
+  .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: .65rem; margin-bottom: .85rem; }
+  .flink {
+    font-family: var(--fm);
+    font-size: 11px;
+    color: var(--sub);
+    background: var(--card);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: .45rem 1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    transition: border-color .15s, color .15s;
+  }
+  .flink:hover { border-color: var(--accent); color: var(--accent); }
+  .footer-note { font-family: var(--fm); font-size: 10px; color: var(--muted); letter-spacing: .06em; }
+
+  @media (max-width: 540px) {
+    .wrap { padding: 2rem 1.1rem 3rem; }
+    .header { flex-direction: column; align-items: flex-start; }
+    .avatar { align-self: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="header">
+    <div class="header-left">
+
+      <h1>Priya Dharshini <em>L</em></h1>
+      <p class="h-sub">M.Sc. IT graduate certified in the Master Data Science Program (IIT-M GUVI) and SQL. Skilled in Python, machine learning, NLP, and statistical modeling with hands-on project experience in real-world datasets.</p>
+      <div class="contact-row">
+        <a class="ctag" href="mailto:lpriyadharshini2000@gmail.com"><i class="ti ti-mail"></i>lpriyadharshini2000@gmail.com</a>
+        <a class="ctag" href="tel:7708376441"><i class="ti ti-phone"></i>7708376441</a>
+        <span class="ctag"><i class="ti ti-map-pin"></i>Bengaluru, Karnataka</span>
+      </div>
+      <div class="contact-row" style="margin-top:.45rem">
+        <a class="ctag" href="https://linkedin.com/in/priya-dharshini-l-224549315" target="_blank"><i class="ti ti-brand-linkedin"></i>LinkedIn</a>
+        <a class="ctag" href="https://github.com/priyadharshini-lakshmanan" target="_blank"><i class="ti ti-brand-github"></i>GitHub</a>
+      </div>
+    </div>
+    <div class="avatar">PD</div>
+  </header>
+
+  <!-- WHAT I BRING -->
+  <section class="sec">
+    <div class="sec-label">what I bring</div>
+    <div class="bring-grid">
+      <div class="bring-card">
+        <div class="bring-icon"><i class="ti ti-brain"></i></div>
+        <div class="bring-title">ML & Modelling</div>
+        <div class="bring-desc">Built and evaluated 7+ ML models including XGBoost, Random Forest, SVM achieving up to 99.5% accuracy.</div>
+      </div>
+      <div class="bring-card">
+        <div class="bring-icon"><i class="ti ti-message-chatbot"></i></div>
+        <div class="bring-title">NLP & LLMs</div>
+        <div class="bring-desc">Fine-tuned DistilBERT & RoBERTa, built RAG pipelines with ChromaDB and Llama 3.1 for production-grade NLP.</div>
+      </div>
+      <div class="bring-card">
+        <div class="bring-icon"><i class="ti ti-chart-bar"></i></div>
+        <div class="bring-title">Data Analysis</div>
+        <div class="bring-desc">End-to-end EDA, cleaning, and visualization on 100k+ record datasets across multiple domains.</div>
+      </div>
+      <div class="bring-card">
+        <div class="bring-icon"><i class="ti ti-device-desktop-analytics"></i></div>
+        <div class="bring-title">App Deployment</div>
+        <div class="bring-desc">Shipped interactive Streamlit apps and REST-ready pipelines — not just notebooks.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="sec">
+    <div class="sec-label">skills & tools</div>
+    <div class="skills-wrap">
+      <div class="skill-row"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+      <div class="skill-row"><span class="skill-name">SQL</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+      <div class="skill-row"><span class="skill-name">Machine Learning</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+      <div class="skill-row"><span class="skill-name">NLP / RAG</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+      <div class="skill-row"><span class="skill-name">Hugging Face</span><div class="skill-bar"><div class="skill-fill warm" style="width:78%"></div></div></div>
+      <div class="skill-row"><span class="skill-name">EDA / Visualization</span><div class="skill-bar"><div class="skill-fill warm" style="width:83%"></div></div></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="sec">
+    <div class="sec-label">projects</div>
+    <div class="proj-list">
+
+      <div class="proj-card">
+        <div class="proj-header">
+          <div class="proj-name">ZENDS AI Customer Support Copilot</div>
+          <div class="proj-badge">NLP · LLM</div>
+        </div>
+        <p class="proj-desc">Built an end-to-end NLP pipeline for telecom customer support automation. Generated a synthetic dataset of 20,000 queries using T5 paraphrasing across 5 intent classes. Fine-tuned DistilBERT for intent classification and RoBERTa for sentiment analysis. Designed a RAG pipeline with ChromaDB and MiniLM embeddings feeding context into Llama 3.1 for grounded response generation.</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">DistilBERT</span><span class="tag">RoBERTa</span><span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">Llama 3.1</span><span class="tag">T5</span>
+        </div>
+        <div class="proj-highlight">20,000 synthetic queries · 5 intent classes · grounded LLM response generation</div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-header">
+          <div class="proj-name">Swiggy Restaurant Recommendation System</div>
+          <div class="proj-badge">Clustering · App</div>
+        </div>
+        <p class="proj-desc">Analyzed 148,541 Swiggy restaurant records across India, cleaning and filtering to 74,460 records from the top 10 cities including Bangalore, Delhi, Pune, and Chennai. Applied K-Means clustering (5 clusters) on 1,739 encoded features. Deployed an interactive Streamlit web app enabling real-time filtering by city, cuisine, rating, and budget.</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">K-Means</span><span class="tag">Streamlit</span><span class="tag">EDA</span><span class="tag">Feature Engineering</span>
+        </div>
+        <div class="proj-highlight">148k records analysed · 5 clusters · live interactive Streamlit app</div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-header">
+          <div class="proj-name">Nutrition Food Data Analysis</div>
+          <div class="proj-badge">99.5% accuracy</div>
+        </div>
+        <p class="proj-desc">Analyzed 31,700+ food records across 10 food types covering 16 nutritional metrics including calories, protein, and glycemic index. Full preprocessing pipeline handling missing values (1.18%), duplicates, and IQR outlier capping — resulting in 31,260 clean ML-ready records. Trained and benchmarked 7 ML models; Gradient Boosting achieved the best result.</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">Gradient Boosting</span><span class="tag">Random Forest</span><span class="tag">XGBoost</span><span class="tag">SVM</span><span class="tag">scikit-learn</span>
+        </div>
+        <div class="proj-highlight">99.50% accuracy · 7 models benchmarked · 31k clean records</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section class="sec">
+    <div class="sec-label">certificates</div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <i class="ti ti-certificate cert-icon"></i>
+        <div>
+          <div class="cert-name">Master Data Science Program</div>
+          <div class="cert-by">IIT-M · GUVI</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <i class="ti ti-certificate cert-icon"></i>
+        <div>
+          <div class="cert-name">The Power of Statistics</div>
+          <div class="cert-by">Google</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <i class="ti ti-certificate cert-icon"></i>
+        <div>
+          <div class="cert-name">Data Analysis using SQL</div>
+          <div class="cert-by">Fractal</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="sec">
+    <div class="sec-label">education</div>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div class="edu-dot"></div>
+        <div>
+          <div class="edu-deg">M.Sc. Information Technology</div>
+          <div class="edu-inst">Lady Doak College, Madurai</div>
+          <div class="edu-yr">Sep 2021 – Apr 2023</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-dot"></div>
+        <div>
+          <div class="edu-deg">B.Sc. Information Technology</div>
+          <div class="edu-inst">V.V.Vanniaperumal College for Women, Virudhunagar</div>
+          <div class="edu-yr">Jun 2018 – May 2021</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a class="flink" href="mailto:lpriyadharshini2000@gmail.com"><i class="ti ti-mail"></i>lpriyadharshini2000@gmail.com</a>
+      <a class="flink" href="https://linkedin.com/in/priya-dharshini-l-224549315" target="_blank"><i class="ti ti-brand-linkedin"></i>LinkedIn</a>
+      <a class="flink" href="https://github.com/priyadharshini-lakshmanan" target="_blank"><i class="ti ti-brand-github"></i>GitHub</a>
+    </div>
+    <div class="footer-note">priya dharshini l · data scientist · bengaluru · open to opportunities</div>
+  </footer>
+
+</div>
+</body>
+</html>
